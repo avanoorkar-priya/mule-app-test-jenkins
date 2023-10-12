@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a08f98f2-1097-4213-9593-76b8cc4c2661" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="9531c211-c789-43a9-b407-e463717ecbc3" file="mule-app.properties" />
+	<flow name="mule-app-test-jenkinsFlow" doc:id="a18b41db-a6ef-4a45-ba41-b06d9437dfaa" >
+		<http:listener doc:name="Listener" doc:id="bc649f07-4052-4660-a0b7-0cb1f877ebc4" config-ref="HTTP_Listener_config" path="/*"/>
+		<set-payload value="Hello World" doc:name="Set Payload" doc:id="6f8f1b90-43e7-4a10-9197-5f2c06617141" />
+	</flow>
+</mule>
